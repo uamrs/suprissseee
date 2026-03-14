@@ -1,0 +1,71 @@
+Surprise untuk Zia body{ margin:0; font-family:sans-serif; background:black; color:white; text-align:center; overflow:hidden; } .page{ display:none; height:100vh; justify-content:center; align-items:center; flex-direction:column; } .active{display:flex} button{ padding:12px 20px; border:none; border-radius:10px; background:#ff4da6; color:white; font-size:16px; } /* loading */ #loading{ position:fixed; width:100%; height:100%; background:black; display:flex; justify-content:center; align-items:center; flex-direction:column; } .bar{ width:200px; height:12px; background:#333; border-radius:10px; overflow:hidden; } .progress{ height:100%; width:0%; background:#ff4da6; } /* heart */ .heart{ font-size:80px; cursor:pointer; } /* star */ .star{ position:absolute; font-size:40px; cursor:pointer; } /* balloon */ .balloon{ font-size:50px; margin:8px; cursor:pointer; } /* chat */ .chatbox{ width:80%; max-width:400px; background:#111; padding:15px; border-radius:15px; } .msg{ background:#25D366; color:black; padding:10px; border-radius:10px; margin:10px; } /* cake */ .cake{ font-size:120px; cursor:pointer; } /* confetti */ .confetti{ position:fixed; top:-10px; font-size:20px; animation:fall 3s linear infinite; } @keyframes fall{ 0%{transform:translateY(-10vh)} 100%{transform:translateY(110vh)} } 
+
+Menyiapkan surprise...
+
+0%
+
+🔔 Notifikasi
+
+mwlnna
+kamu ultah hari ini? 
+
+Masukkan PIN
+
+
+
+Buka
+
+klik ya zia ❤️
+
+klik
+
+Klik heart 5x
+
+❤️
+
+0/5
+
+Kumpulkan bintang ⭐
+
+Masukkan umur
+
+
+
+lanjut
+
+Pecahin balon 🎈
+
+mwlnna
+
+Surat untuk Zia
+
+Happy birthday ya Haziya Raihana Cantika
+
+semoga kamuu panjang umur sehat selalu, dan segala impianmu tercapai, AAMIIN.
+
+bahagia terus ya, jangan suka marah-marah dan cemberut nanti cantiknya kurang lohh😼
+
+oiya kamu jangan suka insecure ya, soalnya kamu cantik banget ( MAA SYAA ALLAH TABARAKALLAH )😽
+
+kamu juga gabole dengerin ucapan orang orang yang ga suka sama kamu, tetap pertahanin dan fokus sama tujuanmu biar kamu ga gagal kaya akuu.. 
+
+jangan lupa kamu harus berbakti sama orang tua, dan kmu harus belajar yang rajin biar bisa imbangi aku, soalnya aku nggak terlalu pinter dalam akademik hihihi 🤭
+
+aku juga mau minta maaf ya soalnya aku sering offline tiba tiba pas kita lagi chatan, aslinya aku mau ngabarin dulu tapi malah nggak sempat, aku juga mau minta maaf kalau balesnya lama soalnya hpku sering lowbat wkwkwk
+
+maaf yaa aku ga ngasih kado🤪 
+( pasti kamu dah tau alasannya )
+
+maaf ngucapin nya terlambat 😅
+
+Bahagia terus yaaa
+
+- mwlnna
+
+lanjut
+
+Tiup lilinnya 🎂
+
+🎂
+
+/* loading */ let p=0 let load=setInterval(()=>{ p+=5 document.getElementById("progress").style.width=p+"%" document.getElementById("percent").innerText=p+"%" if(p>=100){ clearInterval(load) document.getElementById("loading").style.display="none" document.getElementById("lock").classList.add("active") } },120) /* page */ function next(id){ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")) document.getElementById(id).classList.add("active") } /* pin */ function checkPin(){ let pin=document.getElementById("pinInput").value if(pin=="140426"){ next("klik") }else{ alert("PIN salah") } } /* heart */ let hc=0 function heartClick(){ hc++ document.getElementById("heartCount").innerText=hc+"/5" if(hc==5){ startStar() } } /* star */ let sc=0 function startStar(){ next("starPage") for(let i=0;i<5;i++){ let s=document.createElement("div") s.className="star" s.innerText="⭐" s.style.left=Math.random()*80+"%" s.style.top=Math.random()*80+"%" s.onclick=function(){ s.remove() sc++ if(sc==5){ next("agePage") } } document.body.appendChild(s) } } /* balloon */ function startBalloon(){ let age=document.getElementById("ageInput").value next("balloonPage") let box=document.getElementById("balloons") for(let i=0;i<age;i++){ let b=document.createElement("span") b.className="balloon" b.innerText="🎈" b.onclick=function(){ this.remove() if(box.children.length==1){ startChat() } } box.appendChild(b) } } /* chat */ let msgs=[ "happy birthday yaa 🎉", "maaf telat ngucapin", "semoga kamu selalu bahagia", "kamu cantik banget MASYAALLAH" ] let mi=0 function startChat(){ next("chatPage") sendMsg() } function sendMsg(){ if(mi>=msgs.length){ setTimeout(()=>next("letter"),2000) return } let box=document.getElementById("chat") let m=document.createElement("div") m.className="msg" m.innerText=msgs[mi] box.appendChild(m) mi++ setTimeout(sendMsg,2000) } /* confetti */ function confetti(){ document.getElementById("cakeText").innerText="Happy Birthday Zia 🎉" for(let i=0;i<40;i++){ let c=document.createElement("div") c.className="confetti" c.innerText="🎉" c.style.left=Math.random()*100+"%" document.body.appendChild(c) } } 
